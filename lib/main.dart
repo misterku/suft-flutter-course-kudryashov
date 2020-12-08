@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MySecondWidget(),
+      title: "Sample title",
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -138,10 +148,17 @@ class MySecondWidget extends StatefulWidget {
 class _MySecondWidgetState extends State<MySecondWidget> {
   int cnt = 0;
 
+  Type getContext() {
+    return context.runtimeType;
+  }
+
   @override
   Widget build(BuildContext context) {
     ++cnt;
     print(cnt);
+
+    print(getContext());
+
     return Container(
       child: Center(
         child: Text("Hello!"),
